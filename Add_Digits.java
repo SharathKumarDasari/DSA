@@ -12,6 +12,19 @@ class Solution {
     }
 }
 
+
+O(1) solution
+_____________
+
+class Solution {
+    public int addDigits(int num) {
+        if(num<=9) return num;
+        return 1+(num-1)%9; 
+    }
+}
+
+
+
 /*
 	258. Add Digits
 

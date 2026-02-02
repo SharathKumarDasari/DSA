@@ -15,6 +15,40 @@ class Solution {
     }
 }
 
+//-------------optimal solution using bit manipulation---------------
+
+class Solution {
+    public int[] singleNumber(int[] nums) {
+        int res=0;
+        int n=nums.length;
+        for(int i=0;i<n;i++){
+            res^=nums[i];
+        }
+        int cnt=0;
+        while(res>0){
+            cnt++;
+            if((res & 1) == 1){
+                break;
+            }
+            res=res>>1;
+        }
+        int num1=0;
+        int num2=0;
+        for(int i=0;i<n;i++){
+            if(((nums[i]>>(cnt-1)) & 1)==1){
+                num1^=nums[i];
+            }
+            else{
+                num2^=nums[i];
+            }
+            
+        }
+    return new int[]{num1,num2};
+    }
+}
+
+
+
 /*
 	260. Single Number III
 

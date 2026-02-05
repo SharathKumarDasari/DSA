@@ -25,5 +25,5 @@ This folder contains my **daily LeetCode problem-solving practice**, where I con
 ---
 
 ## 🛠 Languages Used
-- **C++** (primary)
-- Java (occasionally)
+- **C++** 
+- Java 

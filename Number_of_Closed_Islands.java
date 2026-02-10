@@ -1,5 +1,5 @@
 class Solution {
-    public boolean bfs(int i,int j,int grid[][],boolean visited[][]){
+    public boolean dfs(int i,int j,int grid[][],boolean visited[][]){
         if(i==0 || j==0 || i==grid.length-1 || j== grid[0].length-1){
             return false;
         }
@@ -11,7 +11,7 @@ class Solution {
             int nr=i+dr[k];
             int nc=j+dc[k];
             if(nr>=0 && nr<grid.length && nc>=0 && nc<grid[0].length && grid[nr][nc]==0 && visited[nr][nc]==false){
-                if(!bfs(nr,nc,grid,visited)){
+                if(!dfs(nr,nc,grid,visited)){
                     isclosed=false;
                 }
             }
@@ -26,7 +26,7 @@ class Solution {
         for(int i=0;i<m;i++){
             for(int j=0;j<n;j++){
                 if(grid[i][j]==0 && !visited[i][j]){
-                   if(bfs(i,j,grid,visited)){
+                   if(dfs(i,j,grid,visited)){
                     cnt++;
                    }
                    

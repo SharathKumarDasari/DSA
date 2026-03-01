@@ -1,4 +1,4 @@
-//dp memoization approach
+//----dp memoization approach----
 
 class Solution {
     public static int fun(int n,int dp[],int heights[]){
@@ -29,7 +29,7 @@ class Solution {
 }
 
 
-//dp tabulation approach
+//----dp tabulation approach----
 
 class Solution {
     public static int fun(int n,int heights[]){
@@ -60,6 +60,42 @@ class Solution {
         
     }
 }
+
+//----space optimization approach---
+
+class Solution {
+    public static int fun(int n,int heights[]){
+        int prev=0;
+        int prev2=0;
+        for(int i=1;i<n;i++){
+            int left=prev+Math.abs(heights[i]-heights[i-1]);
+            int right=Integer.MAX_VALUE;
+            if(i>1)
+            right=prev2+Math.abs(heights[i]-heights[i-2]);
+            int cur=Math.min(left,right);
+            prev2=prev;
+            prev=cur;
+        }
+        return prev;
+    }
+    public static int frogJump(int[] heights) {
+        int n=heights.length;
+        return fun(n,heights);
+    }
+    public static void main(String args[]){
+        // int arr[]={7,5,1,2,6};
+        java.util.Scanner sc=new java.util.Scanner(System.in);
+        int n=sc.nextInt();
+        int arr[]=new int[n];
+        for(int i=0;i<n;i++){
+            arr[i]=sc.nextInt();
+        }
+        System.out.print(frogJump(arr));
+        
+    }
+}
+
+
 
 
 
